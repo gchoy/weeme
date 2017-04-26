@@ -7,8 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Location.destroy_all
-Bathroom.destroy_all
-p "Loading Locations"
 Location.create([
   {
     name: "Westfield Mall",
@@ -39,14 +37,18 @@ Location.create([
   }
 
 ])
-p "loading bathrooms"
+p "Location count:", Location.count
+
+
+Bathroom.destroy_all
 Bathroom.create([
   {
     location_description: "Ground floor",
     is_fam_friendly: true,
     is_gendered: false,
     is_accessible: true,
-    rating: 4.00,
+    rating: 4.0,
+    location_id: 1
   },
   {
     location_description: "At food court level",
@@ -54,6 +56,7 @@ Bathroom.create([
     is_gendered: false,
     is_accessible: true,
     rating: 4.5,
+    location_id: 1
   },
   {
     location_description: "Fifth floor",
@@ -61,6 +64,7 @@ Bathroom.create([
     is_gendered: true,
     is_accessible: true,
     rating: 4.5,
+    location_id: 2
   },
   {
     location_description: "Fifth floor",
@@ -68,6 +72,7 @@ Bathroom.create([
     is_gendered: false,
     is_accessible: true,
     rating: 4.5,
+    location_id: 2
   },
   {
     location_description: "Go to left most entrance and is half way down the hall",
@@ -75,6 +80,7 @@ Bathroom.create([
     is_gendered: true,
     is_accessible: true,
     rating: 3.0,
+    location_id: 3
   },
   {
     location_description: "half way down the hall",
@@ -82,7 +88,9 @@ Bathroom.create([
     is_gendered: true,
     is_accessible: true,
     rating: 3.5,
-  }
+    location_id: 3
 
+  }
 ])
-p "Bathroom", Bathroom.count
+
+p "Bathroom count:", Bathroom.count
