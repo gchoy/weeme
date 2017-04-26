@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.htm
 
   get "/users", to: "users#index", as: "users"
@@ -24,5 +26,4 @@ Rails.application.routes.draw do
   get "/locations/:id/bathrooms/:id/edit", to: "bathrooms#edit", as: "edit_bathroom"
   patch "/locations/:id/bathrooms/:id", to: "bathrooms#update"
   delete "/locations/:id/bathrooms/:id", to: "bathrooms#destroy"
-
 end
