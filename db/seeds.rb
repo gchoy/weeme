@@ -40,6 +40,9 @@ Location.create([
 p "Location count:", Location.count
 
 
+
+
+
 Bathroom.destroy_all
 Bathroom.create([
   {
