@@ -1,24 +1,21 @@
-# README
+# WeeMe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Web application providing restroom access to both individuals and families. 
 
-Things you may want to cover:
 
-* Ruby version
+# Wireframes & User Stories 
 
-* System dependencies
 
-* Configuration
+# Tech
 
-* Database creation
 
-* Database initialization
+# Wishlist/Future Development 
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+# Contributors 
 
-* Deployment instructions
+- Gabriela Choy: https://github.com/gchoy
+- Chelsea Mangold: https://github.com/narriteration
+- Kashif Ali: https://github.com/kashifali554
+- Ashley Vest: https://github.com/ashleyvest5
 
-* ...
