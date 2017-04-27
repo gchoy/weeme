@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Location API', type: :request do
-  # initialize test data TODO
+  # initialize test data
   let!(:locations) { create_list(:location, 10) }
   let(:location_id) { locations.first.id }
 
@@ -51,23 +51,13 @@ RSpec.describe 'Location API', type: :request do
 
   # Test suite for POST /locations
   describe 'POST /locations' do
-    # valid payload TODO
-    # t.string   "name"
-    # t.string   "street_number"
-    # t.string   "street_name"
-    # t.string   "suite"
-    # t.string   "city"
-    # t.string   "state"
-    # t.string   "zip_code"
-    # t.datetime "created_at",    null: false
-    # t.datetime "updated_at",    null: false
-    # t.integer  "user_id"
+    # valid payload
     let(:valid_attributes) { { name: 'Eastridge Mall', street_number:"2200", street_name:"Eastridge Loop",suite:"2062", city:"San Jose", state:"CA",zipcode:"95122", user_id: '1' } }
 
     context 'when the request is valid' do
       before { post '/locations', params: valid_attributes }
 
-      it 'creates a location' do  #refactor for locations
+      it 'creates a location' do
         expect(json['name']).to eq('Eastridge Mall')
       end
 
