@@ -10,7 +10,8 @@
 
   <body>
     <p class="alert"><%= alert %></p>
-
+    <%= link_to "Locations", locations_path %>
+    <%= link_to "Add Bathroom", new_bathroom_path %>
     <% if current_user %>
       <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
     <% else %>

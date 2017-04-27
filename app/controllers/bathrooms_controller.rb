@@ -17,7 +17,7 @@ class BathroomsController < ApplicationController
     bathroom_params = params.require(:bathroom).permit(:location_description, :is_gendered, :is_fam_friendly, :is_accessible, :rating, :location_id)
     bathroom = Bathroom.new(bathroom_params)
     if bathroom.save
-      redirect_to bathrooms_path
+      redirect_to bathroom_path(bathroom)
     end
   end
 
@@ -31,7 +31,11 @@ class BathroomsController < ApplicationController
 
 
   def edit
-    #
+    @locations = Location.all
+    bathroom_id = params[:id]
+    @bathroom = Bathroom.find_by(id: bathroom_id)
+    location_id = params[:location_id]
+    @location = Location.find_by(id: location_id)
   end
 
 

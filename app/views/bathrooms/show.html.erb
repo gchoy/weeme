@@ -14,7 +14,7 @@
   TODO: Add logic to show if false: is gendered
   <br>
   <br>
-  <%= link_to 'Edit'%>
+  <%= link_to 'Edit', edit_bathroom_path(@bathroom)%>
   <br>
   <%= link_to 'Back to ' + @bathroom.location.name, location_path(@bathroom.location_id) %>
 </p>

@@ -1,4 +1,6 @@
 <%= form_for(location) do |f| %>
+
+<!-- Error handling to ensure quality data-->
   <% if location.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
@@ -11,6 +13,8 @@
     </div>
   <% end %>
 
+
+  <!-- Form -->
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
