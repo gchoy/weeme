@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :correct_user,   only: [:edit, :update, :destroy]
+  before_action :current_user, only: [:edit, :update, :destroy]
 
   # GET /locations
   # GET /locations.json
@@ -21,6 +21,9 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
+    if current_user != @location.user
+      redirect_to "/locations"
+    end
   end
 
   # POST /locations
@@ -71,7 +74,7 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:name, :description, :is_gendered)
+      params.require(:location).permit(:name, :street_number, :street_name, :suite, :city, :state, :zip_code)
     end
 
 end
