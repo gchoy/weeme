@@ -3,33 +3,46 @@
 <p>
   <strong>Name:</strong>
   <%= @location.name %>
-</p>
-
-<p>
+  <br>
   <strong>Street Number:</strong>
   <%= @location.street_number %>
-</p>
-
-<p>
+  <br>
   <strong>Street Name:</strong>
   <%= @location.street_name %>
-</p>
-
-<p>
+  <br>
   <strong>Suite:</strong>
   <%= @location.suite %>
-</p>
-
-<p>
+  <br>
   <strong>City:</strong>
   <%= @location.city %>
-</p>
-
-<p>
+  <br>
   <strong>State</strong>
   <%= @location.zip_code %>
+  <br>
+  <br>
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>
+<hr>
 </p>
 
 
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+  <% @location.bathrooms.each do |bathroom| %>
+  <p>
+      <%= link_to "FAVICON HERE", bathroom_path %>
+      <br>
+      PUT STARS HERE:
+      <%= bathroom.rating %>
+      <br>
+      Where located:
+      <%= bathroom.location_description %>
+      <br>
+      <% if true %>
+          Family friendly?
+          <%= bathroom.is_fam_friendly %>
+          <br>
+          Accessible?
+          <%= bathroom.is_accessible %>
+      <% end %>
+      <hr>
+  <% end %>
+</p>

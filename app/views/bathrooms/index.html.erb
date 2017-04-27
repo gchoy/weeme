@@ -2,10 +2,14 @@
 <h2>ADMIN ACCESS ONLY</h2>
 
 <hr>
+
 <% @bathrooms.each do |bathroom| %>
-  <h4>Where located: <%= bathroom.location_description %></a></h4>
-  <%# TODO: Add link to location/:id/bathrooms/:id (SHOW PAGE) %>
-  <h4>Location ID:<%= bathroom.location_id %></a></h4>
-  <%# TODO: Add link to location/:id (SHOW PAGE) %>
-  <hr>
+  <p>
+      Where located:
+      <%= bathroom.location_description %>
+      <br>
+      Location ID:
+      <%= bathroom.location_id %>
 <% end %>
+  <hr>
+  </p>
