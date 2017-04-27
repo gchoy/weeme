@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Location API', type: :request do
   # initialize test data TODO
-  # let!(:locations) { create_list(:todo, 10) }
-  # let(:location_id) { todos.first.id }
+  let!(:locations) { create_list(:location, 10) }
+  let(:location_id) { locations.first.id }
 
   # Test suite for GET /todos
   describe 'GET /locations' do
@@ -37,7 +37,7 @@ RSpec.describe 'Location API', type: :request do
     end
 
     context 'when the record does not exist' do
-      let(:location_id) { 100 }
+      let(:location_id) { 1 }
 
       it 'returns status code 404' do
         expect(response).to have_http_status(404)
@@ -52,13 +52,23 @@ RSpec.describe 'Location API', type: :request do
   # Test suite for POST /locations
   describe 'POST /locations' do
     # valid payload TODO
-    #let(:valid_attributes) { { title: 'Learn Elm', created_by: '1' } }
+    # t.string   "name"
+    # t.string   "street_number"
+    # t.string   "street_name"
+    # t.string   "suite"
+    # t.string   "city"
+    # t.string   "state"
+    # t.string   "zip_code"
+    # t.datetime "created_at",    null: false
+    # t.datetime "updated_at",    null: false
+    # t.integer  "user_id"
+    let(:valid_attributes) { { name: 'Eastridge Mall', street_number:"2200", street_name:"Eastridge Loop",suite:"2062", city:"San Jose", state:"CA",zipcode:"95122", user_id: '1' } }
 
     context 'when the request is valid' do
       before { post '/locations', params: valid_attributes }
 
       it 'creates a location' do  #refactor for locations
-        expect(json['title']).to eq('Learn Elm')
+        expect(json['name']).to eq('Eastridge Mall')
       end
 
       it 'returns status code 201' do
@@ -67,7 +77,7 @@ RSpec.describe 'Location API', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post '/locations', params: { title: 'Foobar' } }
+      before { post '/locations', params: { name: 'Foobar' } }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -82,7 +92,7 @@ RSpec.describe 'Location API', type: :request do
 
   # Test suite for PUT /locations/:id
   describe 'PUT /locations/:id' do
-    let(:valid_attributes) { { title: 'Shopping' } }
+    let(:valid_attributes) { { name: 'Eastridge Center' } }
 
     context 'when the record exists' do
       before { put "/locations/#{location_id}", params: valid_attributes }

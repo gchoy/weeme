@@ -29,11 +29,13 @@ Shoulda::Matchers.configure do |config|
 
       with.test_framework :rspec
       with.library :rails
-    
+
   end
 end
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
@@ -44,7 +46,8 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-
+  #add request_spec_helper methods
+  config.include RequestSpecHelper, type: :request
   #add 'FactoryGirl' methods
   config.include FactoryGirl::Syntax::Methods
 
