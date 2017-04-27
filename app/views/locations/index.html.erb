@@ -28,7 +28,6 @@
         <td><%= location.city %></td>
         <td><%= location.state %></td>
         <td><%= location.zip_code %></td>
-        <td><%= location.user.email %></td>
         <td><%= link_to 'Show', location %></td>
         <% if location.user == current_user %>
         <td><%= link_to 'Edit', edit_location_path(location) %></td>

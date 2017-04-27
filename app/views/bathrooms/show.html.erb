@@ -1,0 +1,20 @@
+<h1>Bathroom <%= @bathroom.id %></h1>
+<h1>in <%= @bathroom.location.name %> </h1>
+
+<p>
+  <strong>Where located:</strong>
+  <%= @bathroom.location_description %>
+  <br>
+  <strong>CHANGE TO STARS  Rating:</strong>
+  <%= @bathroom.rating %>
+  <br>
+  <br>
+  TODO: Add logic to show if true: is fam friendly, is accessible
+  <br>
+  TODO: Add logic to show if false: is gendered
+  <br>
+  <br>
+  <%= link_to 'Edit'%>
+  <br>
+  <%= link_to 'Back to ' + @bathroom.location.name, location_path(@bathroom.location_id) %>
+</p>
