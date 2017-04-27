@@ -6,9 +6,12 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
-      <th>Is gendered</th>
-      <th>User</th>
+      <th>St Num</th>
+      <th>St Name</th>
+      <th>Suite</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip Code</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,8 +20,12 @@
     <% @locations.each do |location| %>
       <tr>
         <td><%= location.name %></td>
-        <td><%= location.description %></td>
-        <td><%= location.is_gendered %></td>
+        <td><%= location.street_number %></td>
+        <td><%= location.street_name %></td>
+        <td><%= location.suite %></td>
+        <td><%= location.city %></td>
+        <td><%= location.state %></td>
+        <td><%= location.zip_code %></td>
         <td><%= location.user.email %></td>
         <td><%= link_to 'Show', location %></td>
         <% if location.user == current_user %>
