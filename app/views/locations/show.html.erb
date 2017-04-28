@@ -1,51 +1,66 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
 
-<p>
-  <strong>Name:</strong>
-  <%= @location.name %>
-  <br>
-  <strong>Street Number:</strong>
-  <%= @location.street_number %>
-  <br>
-  <strong>Street Name:</strong>
-  <%= @location.street_name %>
-  <br>
-  <strong>Suite:</strong>
-  <%= @location.suite || "N/A"%>
-  <br>
-  <strong>City:</strong>
-  <%= @location.city %>
-  <br>
-  <strong>State</strong>
-  <%= @location.zip_code %>
-  <br>
-  <br>
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
-<hr>
-</p>
+      <div class="row">
+        <p id="notice"><%= notice %></p>
+      </div>
+
+      <div class="row">
+        <p>
+          <strong>Name:</strong>
+          <%= @location.name %>
+          <br>
+          <strong>Street Number:</strong>
+          <%= @location.street_number %>
+          <br>
+          <strong>Street Name:</strong>
+          <%= @location.street_name %>
+          <br>
+          <strong>Suite:</strong>
+          <%= @location.suite || "N/A"%>
+          <br>
+          <strong>City:</strong>
+          <%= @location.city %>
+          <br>
+          <strong>State</strong>
+          <%= @location.zip_code %>
+          <br>
+          <br>
+          <%= link_to 'Edit', edit_location_path(@location) %> |
+          <%= link_to 'Back', locations_path %>
+          <hr>
+        </p>
+      </div>
 
 
-  <% @location.bathrooms.each do |bathroom| %>
-  <p>
-      <%= link_to "FAVICON HERE", bathroom_path(bathroom) %>
-      <br>
-      <br>
-      PUT STARS HERE:
-      <%= bathroom.rating %>
-      <br>
-      Where located:
-      <%= bathroom.location_description %>
-      <br>
-      Family friendly?
-      <%= bathroom.is_fam_friendly %>
-      <br>
-      Accessible?
-      <%= bathroom.is_accessible %>
-      <br>
-      Is gender-neutral?
-      <%= !(bathroom.is_gendered) %>
-      <br>
-      <hr>
-  <% end %>
-</p>
+        <% @location.bathrooms.each do |bathroom| %>
+        <div class="row">
+          <p>
+            <%= link_to "FAVICON HERE", bathroom_path(bathroom) %>
+              <br>
+              <br>
+              PUT STARS HERE:
+              <%= bathroom.rating %>
+              <br>
+              Where located:
+              <%= bathroom.location_description %>
+              <br>
+              Family friendly?
+              <%= bathroom.is_fam_friendly %>
+              <br>
+              Accessible?
+              <%= bathroom.is_accessible %>
+              <br>
+              Is gender-neutral?
+              <%= !(bathroom.is_gendered) %>
+              <br>
+              <hr>
+            </p>
+          </div>
+        <% end %>
+
+
+    </div>
+  </div>
+</div>
