@@ -2,19 +2,29 @@
 <h1>in <%= @bathroom.location.name %> </h1>
 
 <p>
-  <strong>Where located:</strong>
+  Where located:
   <%= @bathroom.location_description %>
   <br>
-  <strong>CHANGE TO STARS  Rating:</strong>
+  CHANGE TO STARS  Rating:
   <%= @bathroom.rating %>
   <br>
   <br>
-  TODO: Add logic to show if true: is fam friendly, is accessible
+  Family friendly?
+  <%= @bathroom.is_fam_friendly %>
   <br>
-  TODO: Add logic to show if false: is gendered
+  Accessible?
+  <%= @bathroom.is_accessible %>
+  <br>
+  Is gender-neutral?
+  <%= !(@bathroom.is_gendered) %>
+  <br>
+
+
   <br>
   <br>
-  <%= link_to 'Edit'%>
+  <%= link_to 'Edit', edit_bathroom_path(@bathroom)%>
+  <br>
+  <%= link_to 'Delete Bathroom', bathroom_path(@bathroom), method: :delete %>
   <br>
   <%= link_to 'Back to ' + @bathroom.location.name, location_path(@bathroom.location_id) %>
 </p>

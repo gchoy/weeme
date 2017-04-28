@@ -11,7 +11,7 @@
   <%= @location.street_name %>
   <br>
   <strong>Suite:</strong>
-  <%= @location.suite %>
+  <%= @location.suite || "N/A"%>
   <br>
   <strong>City:</strong>
   <%= @location.city %>
@@ -28,7 +28,8 @@
 
   <% @location.bathrooms.each do |bathroom| %>
   <p>
-      <%= link_to "FAVICON HERE", bathroom_path %>
+      <%= link_to "FAVICON HERE", bathroom_path(bathroom) %>
+      <br>
       <br>
       PUT STARS HERE:
       <%= bathroom.rating %>
@@ -36,13 +37,15 @@
       Where located:
       <%= bathroom.location_description %>
       <br>
-      <% if true %>
-          Family friendly?
-          <%= bathroom.is_fam_friendly %>
-          <br>
-          Accessible?
-          <%= bathroom.is_accessible %>
-      <% end %>
+      Family friendly?
+      <%= bathroom.is_fam_friendly %>
+      <br>
+      Accessible?
+      <%= bathroom.is_accessible %>
+      <br>
+      Is gender-neutral?
+      <%= !(bathroom.is_gendered) %>
+      <br>
       <hr>
   <% end %>
 </p>
