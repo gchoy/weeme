@@ -1,6 +1,7 @@
-<h2>Add a New Bathroom</h2>
+<h1>Edit Bathroom</h1>
 
-<hr>
+<%= link_to 'Back', bathroom_path(@bathroom) %>
+
 
 <%= form_for @bathroom do |f| %>
 
@@ -27,5 +28,5 @@
   <div class="form-group">
     <%= f.submit "Save", class: "btn btn-block btn-default" %>
   </div>
-  
+
 <% end %>
