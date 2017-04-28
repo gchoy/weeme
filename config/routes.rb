@@ -2,17 +2,6 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.htm
-
-  # Users routes, full CRUD
-  get "/users", to: "users#index", as: "users"
-  get "/users/new", to: "users#new", as: "new_user"
-  post "/users", to: "users#create", as: "create_user"
-  get "/users/:id", to: "users#show", as: "user"
-  get "/users/:id/edit", to: "users#edit", as: "edit_user"
-  patch "/users/:id", to: "users#update"
-  delete "/users/:id", to: "users#destroy"
-
   # Locations routes, full CRUD
   get "/locations", to: "locations#index", as: "locations"
   get "/locations/new", to: "locations#new", as: "new_location"
