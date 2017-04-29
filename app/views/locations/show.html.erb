@@ -48,21 +48,19 @@
               <%= link_to image_tag("/app/assets/images/toilet-paper-512-266798.png") , bathroom_path(bathroom) %>
               <br>
               <br>
-              PUT STARS HERE:
+              Rating:
               <%= bathroom.rating %>
               <br>
-              Where located:
+              <%= image_tag("app/assets/images/glyph_man_child-512 2.png") %> Where located:
               <%= bathroom.location_description %>
               <br>
-              Family friendly?
+              <%= image_tag("app/assets/images/glyph_man_child-512 2.png") %> Family friendly?
               <%= bathroom.is_fam_friendly %>
               <br>
-              Accessible?
-              <%= image_tag("app/assets/images/Accessibility Icon_final.svg") %>
+              <%= image_tag("app/assets/images/Accessibility Icon_final.svg") %> Accessible?
               <%= bathroom.is_accessible %>
               <br>
-              Is gender-neutral?
-              <%= image_tag("app/assets/images/gender_neutral_133748-200.png") %>
+              <%= image_tag("app/assets/images/gender_neutral_133748-200.png") %> Is gender-neutral?
               <%= !(bathroom.is_gendered) %>
               <br>
               <hr>
