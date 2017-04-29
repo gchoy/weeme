@@ -1,51 +1,73 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @location.name %>
-  <br>
-  <strong>Street Number:</strong>
-  <%= @location.street_number %>
-  <br>
-  <strong>Street Name:</strong>
-  <%= @location.street_name %>
-  <br>
-  <strong>Suite:</strong>
-  <%= @location.suite || "N/A"%>
-  <br>
-  <strong>City:</strong>
-  <%= @location.city %>
-  <br>
-  <strong>State</strong>
-  <%= @location.zip_code %>
-  <br>
-  <br>
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
-<hr>
-</p>
+<div class="container-fluid">
 
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <!-- Greeting/header for page -->
+        <div id="location-name-header">
+          <h1>Choose from <%= @location.bathrooms.count %> bathrooms at <%= @location.name %></h1>
+        </div>
+      </div>
+    </div>
 
-  <% @location.bathrooms.each do |bathroom| %>
-  <p>
-      <%= link_to "FAVICON HERE", bathroom_path(bathroom) %>
-      <br>
-      <br>
-      PUT STARS HERE:
-      <%= bathroom.rating %>
-      <br>
-      Where located:
-      <%= bathroom.location_description %>
-      <br>
-      Family friendly?
-      <%= bathroom.is_fam_friendly %>
-      <br>
-      Accessible?
-      <%= bathroom.is_accessible %>
-      <br>
-      Is gender-neutral?
-      <%= !(bathroom.is_gendered) %>
-      <br>
-      <hr>
-  <% end %>
-</p>
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <div class="nav-options">
+          <%= link_to 'Edit', edit_location_path(@location) %> |
+          <%= link_to 'Back', locations_path %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <!-- Render location details -->
+        <div class="location-id-detail">
+          <p>
+            <%= @location.name %>
+            <br>
+            <%= @location.street_number %> <%= @location.street_name %>
+            <br>
+            Suite:
+            <%= @location.suite || "N/A"%>
+            <br>
+            <%= @location.city %>
+            <br>
+            <%= @location.zip_code %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="render-list">
+      <div class="col-xs-12 col-md-12">
+        <div class="render-list">
+            <% @location.bathrooms.each do |bathroom| %>
+            <p>
+              <%= link_to image_tag("/app/assets/images/toilet-paper-512-266798.png") , bathroom_path(bathroom) %>
+              <br>
+              <br>
+              PUT STARS HERE:
+              <%= bathroom.rating %>
+              <br>
+              Where located:
+              <%= bathroom.location_description %>
+              <br>
+              Family friendly?
+              <%= bathroom.is_fam_friendly %>
+              <br>
+              Accessible?
+              <%= bathroom.is_accessible %>
+              <br>
+              Is gender-neutral?
+              <%= !(bathroom.is_gendered) %>
+              <br>
+              <hr>
+          <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+</div> <!-- END containerfluid-->
