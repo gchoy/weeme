@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
+  get "/", to: "mix#home"
+  get "/about", to: "mix#about"
+  get "/profile", to: "mix#profile"
 
   # Locations routes, full CRUD
   get "/locations", to: "locations#index", as: "locations"

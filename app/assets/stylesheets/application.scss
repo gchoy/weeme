@@ -13,5 +13,15 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
+// @import 'bootstrap-custom';
+@import 'bootstrap';
 
+.col-md-6 {
+  border-color: black;
+  border-style: solid;
+}
+
+.col-md-3 {
+  border-color: red;
+  border-style: solid;
+}
