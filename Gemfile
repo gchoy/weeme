@@ -45,7 +45,7 @@ gem 'gmaps4rails'
 gem 'geocoder'
 
 # bootstrap
-gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
