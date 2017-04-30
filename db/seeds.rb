@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 Location.destroy_all
 Location.create([
   {
@@ -34,6 +26,60 @@ Location.create([
     city: "San Francisco",
     state: "CA",
     zip_code: "94111"
+  },
+  {
+    name: "Golden Gate Park",
+    street_number: nil,
+    street_name: nil,
+    suite: nil,
+    city: "San Francisco",
+    state: "CA",
+    zip_code: "94122"
+  },
+  {
+    name: "Philz Coffee",
+    street_number: "300",
+    street_name: "Folsom St.",
+    suite: nil,
+    city: "San Francisco",
+    state: "CA",
+    zip_code: "94105"
+  },
+  {
+    name: "SF Ferry Building",
+    street_number: "1",
+    street_name: "Ferry Building",
+    suite: nil,
+    city: "San Francisco",
+    state: "CA",
+    zip_code: "94111"
+  },
+  {
+    name: "Mission Dolores Park",
+    street_number: nil,
+    street_name: nil,
+    suite: nil,
+    city: "San Francisco",
+    state: "CA",
+    zip_code: "94114"
+  },
+  {
+    name: "Maritime Museum",
+    street_number: "900",
+    street_name: "Beach Street",
+    suite: nil,
+    city: "San Francisco",
+    state: "CA",
+    zip_code: "94109"
+  },
+  {
+    name: "Trader Joe's",
+    street_number: "401",
+    street_name: "Bay St.",
+    suite: nil,
+    city: "San Francisco",
+    state: "CA",
+    zip_code: "94133"
   }
 
 ])
