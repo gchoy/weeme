@@ -9,17 +9,18 @@
 <body>
   <div id="map"></div>
   <script>
-    function initMap() {
-      var uluru = {lat: 37.7749, lng: -122.4194};
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
-        center: uluru
-      });
-      var marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-      });
-    }
+    // function initMap() {
+    //   var uluru = {lat: 37.7749, lng: -122.4194};
+    //   var map = new google.maps.Map(document.getElementById('map'), {
+    //     zoom: 8,
+    //     center: uluru
+    //   });
+    //   var marker = new google.maps.Marker({
+    //     position: uluru,
+    //     map: map
+    //   });
+    // }
+  
   </script>
   <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZX6A2DwuFFGA2Ut4EJmvbaW-eQNi0DnY&callback=initMap">
@@ -40,6 +41,8 @@
       <th>City</th>
       <th>State</th>
       <th>Zip Code</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
       <th>User</th>
       <th>Options</th>
       <th colspan="3"></th>
@@ -56,6 +59,8 @@
         <td><%= location.city %></td>
         <td><%= location.state %></td>
         <td><%= location.zip_code %></td>
+        <td><%= location.latitude %></td>
+        <td><%= location.longitude %></td>
         <td><%= link_to 'Show', location %></td>
         <% if location.user == current_user %>
         <td><%= link_to 'Edit', edit_location_path(location) %></td>
@@ -67,5 +72,10 @@
 </table>
 
 <br>
-
 <%= link_to 'New Location', new_location_path %>
+<!-- <br>
+<% image_url = "http://maps.googleapis.com/maps/api/staticmap?size=500x300&sensor=false&zoom=9"%>
+<% @locations.each do |location| %>
+ <% image_url += "&markers=#{location.latitude}%2C#{location.longitude}" %>
+<% end %>
+<%= image_tag image_url %> -->

@@ -20,7 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+#gem 'rails-assets-tether', '>= 1.3.3'
 # Makes form-building easy -- to create a Bootstrap-compatible form, use command: rails generate simple_form:install
 gem 'simple_form'
 # Use jquery as the JavaScript library
@@ -36,6 +36,16 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'rails_admin', '~> 1.1.1'
 gem 'bootstrap', '~> 4.0.0.alpha6'
+
+
+# GOOGLE MAPS
+gem 'gmaps4rails'
+
+#geocoder gem
+gem 'geocoder'
+
+# bootstrap
+gem 'bootstrap-sass'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
