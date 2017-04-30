@@ -1,7 +1,7 @@
 class BathroomsController < ApplicationController
 
   def index
-    @bathrooms = Bathroom.all
+    @bathrooms = Bathroom.all.order('rating')
   end
 
 
