@@ -1,30 +1,56 @@
-<h1>Bathroom <%= @bathroom.id %></h1>
-<h1>in <%= @bathroom.location.name %> </h1>
+<div class="container-fluid">
 
-<p>
-  Where located:
-  <%= @bathroom.location_description %>
-  <br>
-  CHANGE TO STARS  Rating:
-  <%= @bathroom.rating %>
-  <br>
-  <br>
-  Family friendly?
-  <%= @bathroom.is_fam_friendly %>
-  <br>
-  Accessible?
-  <%= @bathroom.is_accessible %>
-  <br>
-  Is gender-neutral?
-  <%= !(@bathroom.is_gendered) %>
-  <br>
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <!-- Greeting/header for page -->
+        <div id="location-name-header">
+          <%= image_tag("/app/assets/images/toilet-paper-512-266798.png")%>
+          <h1>Bathroom <%= @bathroom.id %></h1>
+          <h1>in <%= @bathroom.location.name %> </h1>
+        </div>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <div class="nav-options">
+          <p>
+            <%= link_to 'Edit', edit_bathroom_path(@bathroom)%> |
+            <%= link_to 'Delete Bathroom', bathroom_path(@bathroom), method: :delete %> |
+            <%= link_to 'Back to ' + @bathroom.location.name, location_path(@bathroom.location_id) %>
+          </p>
+        </div>
+      </div>
+    </div>
 
-  <br>
-  <br>
-  <%= link_to 'Edit', edit_bathroom_path(@bathroom)%>
-  <br>
-  <%= link_to 'Delete Bathroom', bathroom_path(@bathroom), method: :delete %>
-  <br>
-  <%= link_to 'Back to ' + @bathroom.location.name, location_path(@bathroom.location_id) %>
-</p>
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <!-- Render location details -->
+        <div class="class-id-detail">
+          <p>
+            <%= image_tag("app/assets/images/glyph_man_child-512 2.png") %>
+            Where located:
+            <%= @bathroom.location_description %>
+            <br>
+            Rating:
+            <%= @bathroom.rating || "Oops, no ratings yet!"%>
+            <br>
+            <br>
+            <%= image_tag("app/assets/images/glyph_man_child-512 2.png") %>
+            Family friendly?
+            <%= @bathroom.is_fam_friendly %>
+            <br>
+            <%= image_tag("app/assets/images/Accessibility Icon_final.svg") %>
+            Accessible?
+            <%= @bathroom.is_accessible %>
+            <br>
+            <%= image_tag("app/assets/images/gender_neutral_133748-200.png") %>
+            Is gender-neutral?
+            <%= !(@bathroom.is_gendered) %>
+            <br>
+          </p>
+        </div>
+      </div>
+    </div>
+
+</div> <!-- END containerfluid-->
