@@ -6,12 +6,15 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
+    # @locations = Location.all.order('name')
     @locations = Location.all.order('name')
+
   end
 
   # GET /locations/1
   # GET /locations/1.json
   def show
+    # @location = Location.find(params[:id])
   end
 
   # GET /locations/new
