@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get "/about", to: "mix#about"
   get "/profile", to: "mix#profile"
 
-  get "/search", to: "locations#search"
+  #Search route
+  get "/locations/search", to: "locations#search", as: "search"
 
   # Locations routes, full CRUD
   get "/locations", to: "locations#index", as: "locations"
