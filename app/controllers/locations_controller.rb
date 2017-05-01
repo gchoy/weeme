@@ -7,14 +7,26 @@ class LocationsController < ApplicationController
   # GET /locations.json
   def index
     # @locations = Location.all.order('name')
-    @locations = Location.all.order('name')
+    # @locations = Location.all.order('name')
 
-    @locations = Location.all
+    if params[:search].present?
+       @locations = Location.near(params[:search], 1)
+      #  @location = params[:search]
+
+      #  p "Location.find(params search)  "Location.find(params[:search])
+      #  p "Location find params id:  "Location.find(params[:id])
+    else
+       @locations = Location.all
+
+    end
+
+    # @locations = Location.all
     @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
     marker.lat location.latitude
     marker.lng location.longitude
     marker.infowindow "<a target=location.name href='https://www.google.com/maps/place/"+"#{location.full_address}"+"'>location.name</a>"
     end
+
 end
 
   # GET /locations/1
