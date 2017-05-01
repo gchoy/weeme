@@ -13,9 +13,9 @@ class LocationsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
     marker.lat location.latitude
     marker.lng location.longitude
-    marker.infowindow "<a target=location.name href='https://www.google.com/maps/place/"+"#{location.full_address}"+"'>location.name</a>"
+    marker.infowindow "<a target=location.name href='https://www.google.com/maps/place/"+"#{location.full_address}"+"'>#{location.name}</a>"
     end
-end
+  end
 
   # GET /locations/1
   # GET /locations/1.json
@@ -75,6 +75,20 @@ end
     end
   end
 
+  # GET "/locations/search"
+	def search
+		@location = params[:location]
+		@distance = params[:distance]
+		@locations = Location.near(@location, @distance)
+
+
+      search_map(@locations)
+      # redirect_to search_path
+
+
+
+	end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_location
@@ -85,5 +99,16 @@ end
     def location_params
       params.require(:location).permit(:name, :street_number, :street_name, :suite, :city, :state, :zip_code)
     end
+
+    #Sets up the hash map for gmaps4rails
+    def search_map(locations)
+		  @locations = locations
+		  @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
+			  marker.lat location.latitude
+			  marker.lng location.longitude
+			  # marker.infowindow marker.infowindow "<a target=location.name href='https://www.google.com/maps/place/"+"#{location.full_address}"+"'>location.name</a>"
+			  # marker.json({ name: location.name, id: location.id })
+			end
+		end
 
 end
