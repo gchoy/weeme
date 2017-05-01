@@ -13,7 +13,7 @@ class LocationsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
     marker.lat location.latitude
     marker.lng location.longitude
-    marker.infowindow "<a target=location.name href='https://www.google.com/maps/place/"+"#{location.full_address}"+"'>Get Directions With Google Maps</a>"
+    marker.infowindow "<a target=location.name href='https://www.google.com/maps/place/"+"#{location.full_address}"+"'>location.name</a>"
     end
 end
 
