@@ -9,7 +9,12 @@ class LocationsController < ApplicationController
     # @locations = Location.all.order('name')
     @locations = Location.all.order('name')
 
-  end
+    @locations = Location.all
+    @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
+    marker.lat location.latitude
+    marker.lng location.longitude
+    end
+end
 
   # GET /locations/1
   # GET /locations/1.json
