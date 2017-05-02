@@ -2,6 +2,37 @@
 ////////////// IDs ////////////////
 ///////////////////////////////////
 
+#map {
+  border: #333333 solid 2px;
+}
+
+#quick {
+  background-color: yellow;
+}
+
+#locations-index-header {
+  text-align: center;
+}
+
+#bathrooms-index {
+
+  font-size: 16px;
+  margin-bottom: 60px;
+
+  th {
+    color: #333333;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  td {
+    color: #333333;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
 #notice {
   color: #0A8754;
   font-weight: bolder;
@@ -34,13 +65,13 @@
   }
 }
 
-#bathroom-info {
-  background-color: #133C55;
-}
-
 ////////////////////////////////////////////
 ///////////////// CLASSES //////////////////
 ////////////////////////////////////////////
+
+.index-container {
+  margin-left: 170px;
+}
 
 .field_with_errors {
   padding: 2px;
@@ -69,6 +100,12 @@
   }
 }
 
+.container-fluid {
+  color: #333333;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
 //////////////////////////////////
 /////////// ELEMENTS /////////////
 //////////////////////////////////
@@ -76,7 +113,7 @@
 body {
   background-color: #508991;
   text-align: center;
-  color: black;
+  color: #333333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -100,10 +137,15 @@ a {
   color: red;
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #333333;
+    background-color: yellow;
+    border-bottom: none;
   }
 }
+
+// thead {
+//   border-bottom: #333333 solid 2px;
+// }
 
 th {
   padding-bottom: 5px;
