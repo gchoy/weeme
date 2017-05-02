@@ -16,6 +16,9 @@
         <div class="nav-options">
           <%= link_to 'Edit ', edit_location_path(@location) %> |
           <%= link_to 'Back', locations_path %> |
+
+          <td><%= link_to 'Edit', edit_location_path(@location) %></td> |
+          <td><%= link_to 'Destroy', @location, method: :delete, data: { confirm: 'Are you sure you want to delete this location?' } %></td> |
           <%= link_to 'Add New Bathroom', new_bathroom_path %>
         </div>
       </div>
@@ -64,6 +67,9 @@
               <%= image_tag("app/assets/images/gender_neutral_133748-200.png") %> Is gender-neutral?
               <%= !(bathroom.is_gendered) %>
               <br>
+              <br>
+              <%= link_to 'Edit', edit_bathroom_path(bathroom)%> |
+              <%= link_to 'Delete Bathroom', bathroom_path(bathroom), method: :delete %>
               <hr>
           <% end %>
           </p>
