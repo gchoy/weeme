@@ -21,6 +21,8 @@
       </div>
   </div>
 
+
+  
   <!-- MAP CONTAINER -->
   <div class="container-fluid">
     <div class="row">
@@ -101,17 +103,33 @@
     </div>
   </div>
 
+
 </body>
 
 
 
 
 <script type="text/javascript">
+
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   markers = handler.addMarkers(<%=raw @hash.to_json %>);
-
+if(navigator.geolocation)
+  navigator.geolocation.getCurrentPosition(displayOnMap);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
 });
+
+function displayOnMap(position){
+  var marker = handler.addMarker({
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+
+  });
+  handler.map.centerOn(marker);
+};
+
+
+
+
 </script>
