@@ -8,12 +8,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+
+
+    <!-- NAVBAR -->
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Links -->
+      <!-- Links inside burger -->
       <div class="collapse navbar-collapse" id="nav-content">
         <ul class="navbar-nav mr-auto">
           <li class="active">
@@ -39,16 +42,17 @@
         </ul>
       </div>
 
+
+      <!-- SEARCHBAR -->
       <form class="form-inline my-2 my-lg-0">
         <!--<input class="form-control mr-sm-2" type="text" placeholder="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-        <%= form_tag locations_path, method: :get do %>
+        <%= form_tag locations_path, method: :get, class: "form-control" do %>
         <%= label :search, "" %>
-        <%= text_field_tag :search, params[:search], id: 'text_field_id' %>
+        <%= text_field_tag :search, params[:search], id: 'text_field_id', placeholder: 'Where are you?' %>
         <%= submit_tag "Search", id: 'search_button' %>
         <% end %>
       </form>
-
 
     </div>
   </nav>
