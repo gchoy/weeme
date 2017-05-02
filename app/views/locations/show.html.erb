@@ -44,32 +44,30 @@
       </div>
     </div>
 
-    <div class="render-list">
       <div class="col-xs-12 col-md-12">
         <div class="render-list">
             <% @location.bathrooms.each do |bathroom| %>
             <p>
-              <%= link_to image_tag("/app/assets/images/toilet-paper-512-266798.png") , bathroom_path(bathroom) %>
+            <%= link_to bathroom_path(bathroom) do %>
+                <%= image_tag "toilet-paper-512-266798.png", :class => "style_image_1" %>
+                <% end %>
               <br>
               <br>
               Rating:
               <%= bathroom.rating %>
               <br>
-              <%= image_tag("app/assets/images/glyph_man_child-512 2.png") %> Where located:
+              <%= image_tag "glyph_man_child-512.png", :class => "style_image_1"%> Where located:
               <%= bathroom.location_description %>
               <br>
-              <%= image_tag("app/assets/images/glyph_man_child-512 2.png") %> Family friendly?
+              <%= image_tag "glyph_man_child-512.png", :class => "style_image_1" %> Family friendly?
               <%= bathroom.is_fam_friendly %>
               <br>
-              <%= image_tag("app/assets/images/Accessibility Icon_final.svg") %> Accessible?
+              <%= image_tag "Accessibility Icon_final.svg", :class => "style_image_1" %> Accessible?
               <%= bathroom.is_accessible %>
               <br>
-              <%= image_tag("app/assets/images/gender_neutral_133748-200.png") %> Is gender-neutral?
+              <%= image_tag "gender_neutral_133748-200.png", :class => "style_image_1" %> Is gender-neutral?
               <%= !(bathroom.is_gendered) %>
               <br>
-              <br>
-              <%= link_to 'Edit', edit_bathroom_path(bathroom)%> |
-              <%= link_to 'Delete Bathroom', bathroom_path(bathroom), method: :delete %>
               <hr>
           <% end %>
           </p>

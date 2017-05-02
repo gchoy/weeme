@@ -1,1 +1,8 @@
-This page will render profile
+<%= current_user.email %>
+<br>
+<%= current_user.created_at %>
+<br>
+
+<% if current_user.admin == true %>
+  <%= link_to " Visit Admin panel", "/admin" %>
+  <% end %>
