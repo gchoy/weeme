@@ -5,69 +5,107 @@
 </head>
 
 <body>
-<%= form_tag locations_path, method: :get do %>
-  <%= label :search, "Search Bathrooms near : " %>
-  <%= text_field_tag :search, params[:search] %>
+
+  <!-- NOTICE CONTAINER FOR USER CONFIRMATIONS -->
+  <p id="notice"><%= notice %></p>
 
 
-
-  <%= submit_tag "Search" %>
-  <% end %>
-
-  <div style='width: 800px;'>
-    <div id="map" style='width: 800px; height: 400px;'></div>
+  <!-- ACTION LINKS @ TOP-->
+  <div class="container-fluid">
+      <div class="col-xs-12 centered" id="locations-index-header">
+        <h4>Don't see your favorite building? <%= link_to 'Add a Location!', new_location_path %></h4>
+        <br>
+        <h4>Want to share your favorite bathroom? <%= link_to 'Add a Bathroom!', new_bathroom_path %></h4>
+        <br>
+        <br>
+      </div>
   </div>
 
-  
+  <!-- MAP CONTAINER -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 centered">
+        <div style='width: 1000px;' class="index-container centered">
+          <div id="map" style='width: 800px; height: 400px;'></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+<!-- FILTER SEARCH ~~COMING SOON~~~ -->
+  <div class="dropup">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Filter your search (Coming Soon!)
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <li><a href="#">Show family friendly</a></li>
+      <li><a href="#">Show gender neutral</a></li>
+      <li><a href="#">Show accessible</a></li>
+      <li role="separator" class="divider"></li>
+    </ul>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+  <!-- RENDER LOCATION LIST TABLE -->
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 centered">
+        <div style='width: 1000px;' class="centered">
+          <table id="bathrooms-index">
+            <h4>Looking for a specific location?</h4>
+            <h4>Find it below and click to see it's bathrooms!</h4>
+            <br>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>St Num</th>
+                <th>St Name</th>
+                <th>Suite</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
+                <th>Options</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @locations.each do |location| %>
+                <tr>
+                  <td><%= link_to location.name, location %></td>
+                  <td><%= location.street_number %></td>
+                  <td><%= location.street_name %></td>
+                  <td><%= location.suite %></td>
+                  <td><%= location.city %></td>
+                  <td><%= location.state %></td>
+                  <td><%= location.zip_code %></td>
+                  <td id="quick"><%= link_to 'Quick! Show me some bathrooms at ' + location.name + '!', location %></td>
+                  <% if location.user == current_user %>
+                  <td><%= link_to 'Edit', edit_location_path(location) %></td>
+                  <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure you want to delete this location?' } %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 
-<p id="notice"><%= notice %></p>
 
-<h1>Locations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>St Num</th>
-      <th>St Name</th>
-      <th>Suite</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip Code</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>User</th>
-      <th>Options</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @locations.each do |location| %>
-      <tr>
-        <td><%= location.name %></td>
-        <td><%= location.street_number %></td>
-        <td><%= location.street_name %></td>
-        <td><%= location.suite %></td>
-        <td><%= location.city %></td>
-        <td><%= location.state %></td>
-        <td><%= location.zip_code %></td>
-        <td><%= location.latitude %></td>
-        <td><%= location.longitude %></td>
-        <td><%= link_to 'Show', location %></td>
-        <% if location.user == current_user %>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure you want to delete this location?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<%= link_to 'New Location', new_location_path %>
 <script type="text/javascript">
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
