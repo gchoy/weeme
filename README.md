@@ -1,12 +1,14 @@
 # WeeMe
 
-Web application built for mobile first that allows users to input their current location, and find nearby public / free bathrooms. The user can see each bathroom's rating, and true or false values regarding each bathroom's: family friendliness, gender neutrality, and accessibility.
+Web application built for mobile first that allows users to input their current location, and find nearby public / free-access bathrooms. The user can see each each bathroom's rating, and true or false values regarding each bathroom's: family friendliness, gender neutrality, and accessibility.
 
-If users would like to add a bathroom, they may create an account.
+If users would like to add a bathroom or new location (building / park / center / residence), they may create an account.
 
 
 # Wireframes & User Stories
-Coming Soon
+![ERD:](erd.jpg)
+![Models:](models.jpg)
+![User flow:](user_flow.jpg)
 
 # Tech
 - Front-end: Bootstrap, Sass
@@ -16,10 +18,8 @@ Coming Soon
 - Tests: Rspec
 
 # Wishlist/Future Development
-- Embedded search bar in header
-- A home page that allows the user to automatically give app permission to find their location and default to closest bathrooms in the surrounding
+- Move from development to production: A home page that allows the user to automatically give app permission to find their location and default to closest bathrooms in the surrounding
 - Ability to filter and sort bathrooms by family, gender neutrality, and accessibility
-- Navigation bar containing a logo, searchbar, and burger
 - Footer containing links to About and Home pages
 - Ability to click on a map's pins and be directed to that location's bathroom index
 - Restrict Bathroom Edit/Delete permission to user who created that bathroom
