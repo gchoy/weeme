@@ -4,7 +4,7 @@
       <div class="col-xs-12 col-md-12">
         <!-- Greeting/header for page -->
         <div id="location-name-header">
-          <%= image_tag("/app/assets/images/toilet-paper-512-266798.png")%>
+          <%= image_tag"toilet-paper-512-266798.png", :class => "style_image_1"%>
           <h1>Bathroom <%= @bathroom.id %></h1>
           <h1>in <%= @bathroom.location.name %> </h1>
         </div>
@@ -28,7 +28,7 @@
         <!-- Render location details -->
         <div class="class-id-detail">
           <p>
-            <%= image_tag("app/assets/images/glyph_man_child-512 2.png") %>
+            <%= image_tag "glyph_man_child-512.png", :class => "style_image_1" %>
             Where located:
             <%= @bathroom.location_description %>
             <br>
@@ -36,15 +36,15 @@
             <%= @bathroom.rating || "Oops, no ratings yet!"%>
             <br>
             <br>
-            <%= image_tag("app/assets/images/glyph_man_child-512 2.png") %>
+            <%= image_tag"glyph_man_child-512.png", :class => "style_image_1" %>
             Family friendly?
             <%= @bathroom.is_fam_friendly %>
             <br>
-            <%= image_tag("app/assets/images/Accessibility Icon_final.svg") %>
+            <%= image_tag"Accessibility Icon_final.svg", :class => "style_image_1" %>
             Accessible?
             <%= @bathroom.is_accessible %>
             <br>
-            <%= image_tag("app/assets/images/gender_neutral_133748-200.png") %>
+            <%= image_tag"gender_neutral_133748-200.png", :class => "style_image_1" %>
             Is gender-neutral?
             <%= !(@bathroom.is_gendered) %>
             <br>
