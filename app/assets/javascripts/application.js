@@ -17,4 +17,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require underscore
+//= require lodash
 //= require_tree .
