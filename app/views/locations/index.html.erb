@@ -15,10 +15,10 @@
   <% end %>
 
   <div style='width: 800px;'>
-    <div id="map" style='width: 800px; height: 400px;'></div>
+    <div id="map" style='width: 800px; height: 400px ;'></div>
   </div>
 
-  
+
 
 </body>
 
@@ -69,11 +69,26 @@
 <br>
 <%= link_to 'New Location', new_location_path %>
 <script type="text/javascript">
+
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   markers = handler.addMarkers(<%=raw @hash.to_json %>);
-
+if(navigator.geolocation)
+  navigator.geolocation.getCurrentPosition(displayOnMap);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
 });
+
+function displayOnMap(position){
+  var marker = handler.addMarker({
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+
+  });
+  handler.map.centerOn(marker);
+};
+
+
+
+
 </script>
