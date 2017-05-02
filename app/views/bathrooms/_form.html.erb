@@ -1,47 +1,56 @@
-<%= form_for @bathroom do |f| %>
+<div class="container-fluid">
+  <div class="row ">
+    <div class="col-xs-12">
 
-<!-- Error handling to ensure quality data-->
-  <% if bathroom.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(location.errors.count, "error") %> prohibited this bathroom from being saved:</h2>
+        <%= form_for @bathroom do |f| %>
 
-      <ul>
-      <% bathroom.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <!-- Error handling to ensure quality data-->
+          <% if bathroom.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(location.errors.count, "error") %> prohibited this bathroom from being saved:</h2>
+
+              <ul>
+              <% bathroom.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+
+          <%= form_for @bathroom do |f| %>
+
+          <div class="form-group">
+            Pick an address: <%= f.collection_select :location_id, @locations, :id, :name,  class: "form-control", autofocus: true %>
+          </div>
+
+          <div class="form-group">
+            Describe how to find this bathroom: <%= f.text_field :location_description, class: "form-control col-md-6" %>
+          </div>
+
+          <div class="form-group">
+            Family friendly?<%= f.check_box :is_fam_friendly, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            Single gender?<%= f.check_box :is_gendered, class: "form-control", placeholder: "Description" %>
+          </div>
+
+          <div class="form-group">
+            Wheelchair accessible?<%= f.check_box :is_accessible, class: "form-control", placeholder: "Description" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.submit "Save", class: "btn btn-default" %>
+          </div>
+
+        <% end %>
+
+
+        <!-- Form -->
+
+        <% end %>
+
     </div>
-  <% end %>
-
-  <%= form_for @bathroom do |f| %>
-
-  <div class="form-group">
-    Pick an address: <%= f.collection_select :location_id, @locations, :id, :name,  class: "form-control", autofocus: true %>
   </div>
-
-  <div class="form-group">
-    Describe how to find this bathroom: <%= f.text_field :location_description, class: "form-control col-md-6", autofocus: true %>
-  </div>
-
-  <div class="form-group">
-    Family friendly?<%= f.check_box :is_fam_friendly, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    Single gender?<%= f.check_box :is_gendered, class: "form-control", placeholder: "Description" %>
-  </div>
-
-  <div class="form-group">
-    Wheelchair accessible?<%= f.check_box :is_accessible, class: "form-control", placeholder: "Description" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit "Save", class: "btn btn-default" %>
-  </div>
-
-<% end %>
-
-
-<!-- Form -->
-
-<% end %>
+</div>
