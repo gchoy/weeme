@@ -20,15 +20,17 @@
       <div class="collapse navbar-collapse" id="nav-content">
         <ul class="navbar-nav mr-auto">
           <li class="active">
-            <a href="/bathrooms/new">New bathroom<span class="sr-only">(current)</span>
-            </a>
+            <a href="/locations/new">Add a Location<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="active">
+            <a href="/bathrooms/new">Add a Bathroom<span class="sr-only">(current)</span></a>
           </li>
           <li>
             <a href="/about">About Us</a>
           </li>
           <% if current_user %>
           <li>
-            <a href="/profile">Profile</a>
+            <a href="/profile">Profile  </a>
           </li>
           <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
         <% else %>
@@ -56,7 +58,7 @@
 
     </div>
   </nav>
-  
+
 
   <p class="alert"><%= alert %></p>
 
