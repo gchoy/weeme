@@ -6,9 +6,9 @@ If users would like to add a bathroom or new location (building / park / center 
 
 
 # Wireframes & User Stories
-![ERD:](erd.jpg)
-![Models:](models.jpg)
-![User flow:](user_flow.jpg)
+![ERD](erd.jpg)
+![Models](models.jpg)
+![User flow](user_flow.jpg)
 
 # Tech
 - Front-end: Bootstrap, Sass
